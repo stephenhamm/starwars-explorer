@@ -1,0 +1,3 @@
+export const PEOPLE_LOADED = "PEOPLE_LOADED";
+export const MOVIES_LOADED = "MOVIES_LOADED";
+export const PLANETS_LOADED = "PLANETS_LOADED";

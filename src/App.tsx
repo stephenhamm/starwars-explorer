@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import TopAppBar from './components/UI//TopAppBar/TopAppBar';
+
+const Home = lazy(() => import('./containers/Home/Home'));
+const People = lazy(() => import('./containers/People/People'));
+const Movies = lazy(() => import('./containers/Movies/Movies'));
+const Planets = lazy(() => import('./containers/Planets/Planets'));
+const NotFound = lazy(() => import('./containers/NotFound/NotFound'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>  
+      <div className="App">
+        <TopAppBar />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/People" component={People} />
+            <Route path="/Movies" component={Movies} />
+            <Route path="/Planets" component={Planets} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </Suspense>
+      </div>
+    </Router>
   );
 }
 
