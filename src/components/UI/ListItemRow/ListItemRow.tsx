@@ -7,17 +7,19 @@ import Icon from '@material-ui/icons/AccountCircle';
 
 interface Props {
   title: string;
+  listIndex: number;
+  clicked: Function
 }
 
 const ListItemRow = (props: Props) => (
-  <ListItem button>
-    <ListItemAvatar>
-      <Avatar>
-        <Icon />
-      </Avatar>
-    </ListItemAvatar>
-    <ListItemText primary={props.title} />
-  </ListItem>
+    <ListItem button onClick={() => props.clicked(props.listIndex)}>
+      <ListItemAvatar>
+        <Avatar>
+          <Icon />
+        </Avatar>
+      </ListItemAvatar>
+      <ListItemText primary={props.title} />
+    </ListItem>
 );
 
 export default ListItemRow;

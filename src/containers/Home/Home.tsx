@@ -4,9 +4,9 @@ import './Home.css';
 
 const Home = () => (
   <div className="list">
-    <ContainedButton title="People" route="/People"/>
-    <ContainedButton title="Movies" route="/Movies"/>
-    <ContainedButton title="Planets" route="/Planets"/>
+    <ContainedButton title="People" route="/people"/>
+    <ContainedButton title="Movies" route="/movies"/>
+    <ContainedButton title="Planets" route="/planets"/>
   </div>
 );
 

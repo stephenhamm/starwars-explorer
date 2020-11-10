@@ -5,21 +5,28 @@ import TopAppBar from './components/UI//TopAppBar/TopAppBar';
 
 const Home = lazy(() => import('./containers/Home/Home'));
 const People = lazy(() => import('./containers/People/People'));
+const Person = lazy(() => import('./components/Person/Person'));
 const Movies = lazy(() => import('./containers/Movies/Movies'));
+const Movie = lazy(() => import('./components/Movie/Movie'));
 const Planets = lazy(() => import('./containers/Planets/Planets'));
+const Planet = lazy(() => import('./components/Planet/Planet'));
 const NotFound = lazy(() => import('./containers/NotFound/NotFound'));
 
+//Setting Suspense fallback to null since visible loading spinner is handled through Redux actions
 function App() {
   return (
     <Router>  
       <div className="App">
         <TopAppBar />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={null}>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/People" component={People} />
-            <Route path="/Movies" component={Movies} />
-            <Route path="/Planets" component={Planets} />
+            <Route path="/people" component={People} />
+            <Route path="/person/:id" component={Person} />
+            <Route path="/movies" component={Movies} />
+            <Route path="/movie/:id" component={Movie} />
+            <Route path="/planets" component={Planets} />
+            <Route path="/planet/:id" component={Planet} />
             <Route path="*" component={NotFound} />
           </Switch>
         </Suspense>

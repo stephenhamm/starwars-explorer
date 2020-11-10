@@ -1,29 +1,49 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import List from '@material-ui/core/List';
+import { CircularProgress } from '@material-ui/core';
 import { getPeople } from "../../store/actions/index";
-import Person from '../../types/Person/Person';
+import Person from '../../types/Person';
 import { RootState } from '../../store/reducers/index';
 import ListItemRow from '../../components/UI/ListItemRow/ListItemRow';
+import './People.css';
 
 const People = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  let userData = useSelector((state: RootState) => {
+  let people = useSelector((state: RootState) => {
     return state.peopleReducer.people;
+  });
+
+  let loading = useSelector((state: RootState) => {
+    return state.peopleReducer.loading;
   });
 
   useEffect(() => {
     dispatch(getPeople());
   }, [dispatch])
 
-  return (
-    <List>
-      {userData.map((person: Person) => (
-        <ListItemRow title={person.name} key={person.name}/>
-      ))}
-    </List>
-  );
+  const onListItemClick = (index: number) => {
+    history.push(`/person/${index}`);
+  }
+
+  if (loading === true) {
+    return (
+      <div className="loading">
+        <CircularProgress size="5rem" />
+      </div>
+    )
+  } else {
+    return ( 
+      <List>
+        {people.map((person: Person, index: number) => (
+          <ListItemRow key={person.name} title={person.name} listIndex={index + 1} clicked={onListItemClick} />
+        ))}
+      </List>
+    )
+  }
 }
 
 export default People;

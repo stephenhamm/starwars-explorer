@@ -7,5 +7,5 @@
 a {
   text-decoration: none;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
