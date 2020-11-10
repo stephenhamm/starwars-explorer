@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ContainedButton = (props: Props) => (
-	<Link to={props.route}>
+	<Link to={props.route} className="link">
   	<Button variant="contained" color="primary" size="large" className="button">{props.title}</Button>
 	</Link>
 );

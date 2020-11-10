@@ -1,12 +1,12 @@
 .button {
   font-weight: bold !important;
-  width: 150px;
   margin-bottom: 15px !important;
+  width: 150px;
 }
 
-a {
-  text-decoration: none;
+.link {
   display: flex;
   justify-content: flex-start;
+  text-decoration: none;
   width: 150px;
 }
