@@ -19,7 +19,8 @@ const Planet = () => {
   });
 
   useEffect(() => {
-    const id = location.charAt(location.length - 1);
+    const routerLocation = location.split("/");
+    const id = routerLocation[routerLocation.length - 1];
     dispatch(getPlanet(id));
   }, [dispatch, location])
 

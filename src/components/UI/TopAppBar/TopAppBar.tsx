@@ -1,28 +1,19 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { useHistory, useLocation } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  }
-}));
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import BobaFett from '../../../assets/images/bobaFett.png';
+import './TopAppBar.css';
 
 const TopAppBar = () => {
-  const classes = useStyles();
   const location = useLocation();
+  const history = useHistory();
+  const pathName = location.pathname.split("/")[1];
 
-  let getTitle = () => {
-    const pathName = location.pathname.split("/")[1];
-
+  const getTitle = () => {
     switch(pathName) {
       case "people":
       case "person":
@@ -40,15 +31,30 @@ const TopAppBar = () => {
         return "Star Wars Explorer"
     }
   }
+
+  const onRedirectHome = () => {
+    history.push("/");
+  }
+
+  const onBackButton = () => {
+    if (pathName) {
+      return (
+        <IconButton edge="end" color="inherit" aria-label="back" onClick={history.goBack}>
+          <KeyboardBackspaceIcon />
+        </IconButton>
+      );
+    } 
+  }
   
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+          <IconButton edge="start" color="inherit" aria-label="home" onClick={() => onRedirectHome()}>
+            <img src={BobaFett} alt="home" className="boba-fett" />
           </IconButton>
-          <Typography variant="h6" color="inherit">{getTitle()}</Typography>
+          <Typography variant="h6" color="inherit" className="title">{getTitle()}</Typography>
+          {onBackButton()}
         </Toolbar>
       </AppBar>
     </div>
