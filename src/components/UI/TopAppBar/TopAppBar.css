@@ -20,12 +20,13 @@
 
 .title {
   font-weight: bold !important;
-  letter-spacing: 10px !important;
+  letter-spacing: 7px !important;
   padding-left: 12px;
 }
 
 @media only screen and (max-width: 500px) {
   .title {
     font-size: 15px !important;
+    padding-right: 40px;
   }
 }

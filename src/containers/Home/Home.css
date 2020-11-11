@@ -1,4 +1,72 @@
-.star-wars-logo {
+.content {
   margin-top: 100px;
+}
+
+.content-inner {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content-left {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+
+.content-right {
+  align-items: center;
+  background-color:rgba(12, 41, 54, 0.5);
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: center;
+  width: 500px; 
+}
+
+.description-top {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.description-bottom {
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.explorer-text {
+  margin-top: 10px;
   width: 500px;
+}
+
+.star-wars-logo {
+  width: 500px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .star-wars-logo, .explorer-text, .content-right {
+    width: 300px;
+  }
+
+  .content-right {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .content-inner {
+    flex-direction: column;
+  }
+
+  .content-left {
+    margin-right: 0;
+  }
+
+  .content-right {
+    margin-top: 40px;
+    width: 300px;
+  }
 }
