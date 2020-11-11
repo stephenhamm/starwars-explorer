@@ -62,7 +62,7 @@ const Person = () => {
               </div>
               <div>
                 <span className="attribute-name">Birth Year: </span>
-                <span className="attribute">Height: {person.birthYear}</span>
+                <span className="attribute">{person.birthYear}</span>
               </div>
             </div>
           </div>
