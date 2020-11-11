@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import { Fade } from "react-awesome-reveal";
 import List from '@material-ui/core/List';
 import { CircularProgress } from '@material-ui/core';
 import { getMovies } from "../../store/actions/index";
 import Movie from '../../types/Movie';
 import { RootState } from '../../store/reducers/index';
 import ListItemRow from '../../components/UI/ListItemRow/ListItemRow';
-import './Movies.css';
 
 const Movies = () => {
   const dispatch = useDispatch();
@@ -36,12 +36,14 @@ const Movies = () => {
       </div>
     )
   } else {
-    return ( 
-      <List>
-        {movies.map((movie: Movie, index: number) => (        
-          <ListItemRow key={movie.title} title={movie.title} listIndex={index + 1} clicked={onListItemClick} />
-        ))}
-      </List>
+    return (
+      <Fade>
+        <List>
+          {movies.map((movie: Movie, index: number) => (        
+            <ListItemRow key={movie.title} title={movie.title} listIndex={index + 1} clicked={onListItemClick} />
+          ))}
+        </List>
+      </Fade>
     )
   }
 }

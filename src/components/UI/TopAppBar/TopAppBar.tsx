@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import BobaFett from '../../../assets/images/bobaFett.png';
 import './TopAppBar.css';
 import ContainedButton from '../ContainedButton/ContainedButton';
@@ -36,16 +35,6 @@ const TopAppBar = () => {
   const onRedirectHome = () => {
     history.push("/");
   }
-
-  const onBackButton = () => {
-    if (pathName) {
-      return (
-        <IconButton edge="end" color="inherit" aria-label="back" onClick={history.goBack}>
-          <KeyboardBackspaceIcon />
-        </IconButton>
-      );
-    } 
-  }
   
   return (
     <div className="nav-outer">
@@ -55,7 +44,6 @@ const TopAppBar = () => {
             <img src={BobaFett} alt="home" className="boba-fett" />
           </IconButton>
           <Typography variant="h6" color="inherit" className="title">{getTitle()}</Typography>
-          {onBackButton()}
         </Toolbar>
       </AppBar>
       <div className="nav">

@@ -21,7 +21,17 @@ export function getPerson(id) {
     fetch("https://swapi.dev/api/people/" + id + "/")
     .then(response => response.json())
     .then(json => {
-      dispatch({type: PERSON_LOADED, person: json });
+      const person = {
+        name: json.name,
+        height: json.height,
+        mass: json.mass,
+        hairColor: json.hair_color,
+        skinColor: json.skin_color,
+        gender: json.gender,
+        birthYear: json.birth_year
+      }
+
+      dispatch({type: PERSON_LOADED, person });
       return json;
     });
   };
@@ -45,7 +55,14 @@ export function getMovie(id) {
     fetch("https://swapi.dev/api/films/" + id + "/")
     .then(response => response.json())
     .then(json => {
-      dispatch({type: MOVIE_LOADED, movie: json });
+      const movie = {
+        title: json.title,
+        director: json.director,
+        producers: json.producer,
+        releaseDate: json.release_date
+      }
+
+      dispatch({type: MOVIE_LOADED, movie: movie });
       return json;
     });
   };

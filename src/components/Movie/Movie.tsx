@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from 'react-router-dom';
+import { Fade } from "react-awesome-reveal";
 import { CircularProgress } from '@material-ui/core';
+import Icon from '@material-ui/icons/Movie';
 import { RootState } from '../../store/reducers/index';
 import { getMovie } from '../../store/actions';
 import './Movie.css';
@@ -32,7 +34,28 @@ const Movie = () => {
     );
   } else {
     return (
-      <h1>{movie.title}</h1>
+      <Fade>
+        <div className="movie-info">
+          <div className="movie-info-inner">
+            <Icon className="avatar-icon"/>       
+            <div className="additional-info">
+              <span className="movie-name">{movie.title}</span>
+              <div>
+                <span className="attribute-name">Director: </span>
+                <span className="attribute">{movie.director}</span>
+              </div>
+              <div>
+                <span className="attribute-name">Producers: </span>
+                <span className="attribute">{movie.producers}</span>
+              </div>
+              <div>
+                <span className="attribute-name">Release Date: </span>
+                <span className="attribute">{movie.releaseDate}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Fade>
     );
   }
 }
