@@ -1,22 +1,38 @@
+html, body, #root, .App {
+  height: 100%;
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .loading {
   align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
   margin-top: 100px;
   width: 100%;
+}
+
+.MuiList-padding {
+  padding-top: 0px !important;
+}
+
+.MuiListItemText-primary {
+  font-weight: bolder !important;
+  letter-spacing: 3px !important;
+}
+
+.MuiListItem-button:hover{
+  background-color:rgba(12, 41, 54, 0.5) !important;
+}
+
+.MuiPaper-root.MuiAppBar-root.MuiAppBar-positionFixed.MuiAppBar-colorPrimary.mui-fixed.MuiPaper-elevation4 {
+  position: relative !important;
 }

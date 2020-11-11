@@ -1,6 +1,4 @@
-.list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 15px;
+.star-wars-logo {
+  margin-top: 100px;
+  width: 500px;
 }

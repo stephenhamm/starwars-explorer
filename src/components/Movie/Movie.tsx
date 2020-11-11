@@ -27,7 +27,7 @@ const Movie = () => {
   if (loading === true) {
     return (
       <div className="loading">
-        <CircularProgress size="5rem" />
+        <CircularProgress size="5rem" color="inherit" />
       </div>
     );
   } else {

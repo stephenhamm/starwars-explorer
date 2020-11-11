@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
 import TopAppBar from './components/UI//TopAppBar/TopAppBar';
+import './App.css';
 
 const Home = lazy(() => import('./containers/Home/Home'));
 const People = lazy(() => import('./containers/People/People'));
@@ -18,7 +18,7 @@ function App() {
     <Router>  
       <div className="App">
         <TopAppBar />
-        <Suspense fallback={null}>
+        <Suspense fallback={null}>      
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/people" component={People} />

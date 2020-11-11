@@ -1,12 +1,10 @@
 import React from 'react';
-import ContainedButton from '../../components/UI/ContainedButton/ContainedButton';
+import Logo from '../../assets/images/starWarsLogo.png';
 import './Home.css';
 
 const Home = () => (
-  <div className="list">
-    <ContainedButton title="People" route="/people"/>
-    <ContainedButton title="Movies" route="/movies"/>
-    <ContainedButton title="Planets" route="/planets"/>
+  <div className="content">
+    <img src={Logo} alt="starWars" className="star-wars-logo" />
   </div>
 );
 

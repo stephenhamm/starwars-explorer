@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import BobaFett from '../../../assets/images/bobaFett.png';
 import './TopAppBar.css';
+import ContainedButton from '../ContainedButton/ContainedButton';
 
 const TopAppBar = () => {
   const location = useLocation();
@@ -17,18 +18,18 @@ const TopAppBar = () => {
     switch(pathName) {
       case "people":
       case "person":
-        return "People";
+        return "PEOPLE";
 
       case "movies":
       case "movie":
-        return "Movies";
+        return "MOVIES";
 
       case "planets":
       case "planet":
-        return "Planets";
+        return "PLANETS";
 
       default:
-        return "Star Wars Explorer"
+        return "STAR WARS EXPLORER"
     }
   }
 
@@ -47,8 +48,8 @@ const TopAppBar = () => {
   }
   
   return (
-    <div>
-      <AppBar position="static">
+    <div className="nav-outer">
+      <AppBar>
         <Toolbar variant="dense">
           <IconButton edge="start" color="inherit" aria-label="home" onClick={() => onRedirectHome()}>
             <img src={BobaFett} alt="home" className="boba-fett" />
@@ -57,6 +58,11 @@ const TopAppBar = () => {
           {onBackButton()}
         </Toolbar>
       </AppBar>
+      <div className="nav">
+        <ContainedButton title="People" route="/people"/>
+        <ContainedButton title="Movies" route="/movies"/>
+        <ContainedButton title="Planets" route="/planets"/>
+      </div>
     </div>
   );
 }
